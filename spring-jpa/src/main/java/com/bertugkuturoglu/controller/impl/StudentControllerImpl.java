@@ -1,6 +1,8 @@
 package com.bertugkuturoglu.controller.impl;
 
 import com.bertugkuturoglu.controller.IStudentController;
+import com.bertugkuturoglu.dto.DtoStudent;
+import com.bertugkuturoglu.dto.DtoStudentIU;
 import com.bertugkuturoglu.entities.Student;
 import com.bertugkuturoglu.services.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,8 @@ public class StudentControllerImpl  implements IStudentController {
 
     @PostMapping(path = "/save")
     @Override
-    public Student saveStudent(@RequestBody Student student) {
-        return studentService.SaveStudent(student);
+    public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+        return studentService.SaveStudent(dtoStudentIU);
     }
 
     @GetMapping(path = "/list")

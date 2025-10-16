@@ -1,12 +1,14 @@
 package com.bertugkuturoglu.controller;
 
+import com.bertugkuturoglu.dto.DtoStudent;
+import com.bertugkuturoglu.dto.DtoStudentIU;
 import com.bertugkuturoglu.entities.Student;
 
 import java.util.List;
 
 public interface IStudentController {
 
-    public Student saveStudent(Student student);
+    public DtoStudent saveStudent(DtoStudentIU dtoStudentIU);
 
     public List<Student> GetAllStudents();
 

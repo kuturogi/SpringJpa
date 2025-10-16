@@ -1,12 +1,14 @@
 package com.bertugkuturoglu.services;
 
+import com.bertugkuturoglu.dto.DtoStudent;
+import com.bertugkuturoglu.dto.DtoStudentIU;
 import com.bertugkuturoglu.entities.Student;
 
 import java.util.List;
 
 public interface IStudentService {
 
-    public Student SaveStudent(Student student);
+    public DtoStudent SaveStudent(DtoStudentIU student);
 
     public List<Student> GetAllStudents();
 
