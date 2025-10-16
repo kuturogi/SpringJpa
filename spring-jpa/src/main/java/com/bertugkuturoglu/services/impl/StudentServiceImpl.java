@@ -30,4 +30,9 @@ public class StudentServiceImpl implements IStudentService {
     public Student GetStudentById(Integer id) {
         return studentRepository.findById(id).get();
     }
+
+    @Override
+    public void deleteStudent(Integer id) {
+        studentRepository.deleteById(id);
+    }
 }
