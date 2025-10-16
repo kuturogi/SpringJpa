@@ -44,8 +44,11 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public Student GetStudentById(Integer id) {
-        return studentRepository.findById(id).get();
+    public DtoStudent GetStudentById(Integer id) {
+        DtoStudent dto = new DtoStudent();
+      Student dbStudent = studentRepository.findById(id).get();
+      BeanUtils.copyProperties(dbStudent , dto);
+      return dto;
     }
 
     @Override

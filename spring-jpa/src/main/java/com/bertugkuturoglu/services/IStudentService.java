@@ -12,7 +12,7 @@ public interface IStudentService {
 
     public List<DtoStudent> GetAllStudents();
 
-    public Student GetStudentById(Integer id);
+    public DtoStudent GetStudentById(Integer id);
 
     public void deleteStudent(Integer id);
 
