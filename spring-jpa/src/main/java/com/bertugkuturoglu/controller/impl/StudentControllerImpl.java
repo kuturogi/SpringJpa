@@ -25,7 +25,7 @@ public class StudentControllerImpl  implements IStudentController {
 
     @GetMapping(path = "/list")
     @Override
-    public List<Student> GetAllStudents() {
+    public List<DtoStudent> GetAllStudents() {
         return studentService.GetAllStudents();
     }
 
