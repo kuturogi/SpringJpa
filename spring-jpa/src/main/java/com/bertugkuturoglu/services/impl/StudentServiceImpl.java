@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements IStudentService {
@@ -57,15 +58,21 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public Student UpdateStudent(Integer id, Student updateStudent) {
-         Student dbstudent = studentRepository.findById(id).get();
-         if (dbstudent !=null){
-             dbstudent.setFirstName(updateStudent.getFirstName());
-             dbstudent.setLastName(updateStudent.getLastName());
-             dbstudent.setBirthOfDate(updateStudent.getBirthOfDate());
+    public DtoStudent UpdateStudent(Integer id, DtoStudentIU dtoStudentIU) {
+        DtoStudent dto = new DtoStudent();
+        Optional<Student> optional= studentRepository.findById(id);
+        if (optional.isPresent()) {
+            Student dbStudent = optional.get();
 
-             return studentRepository.save(dbstudent);
-         }
-       return null;
+            dbStudent.setFirstName(dtoStudentIU.getFirstName());
+            dbStudent.setLastName(dtoStudentIU.getLastName());
+            dbStudent.setBirthOfDate(dtoStudentIU.getBirthOfDate());
+
+            Student updatedStudent=studentRepository.save(dbStudent);
+            BeanUtils.copyProperties(updatedStudent , dto);
+            return dto;
+
+        }
+        return null;
     }
 }
