@@ -26,4 +26,11 @@ public class StudentControllerImpl  implements IStudentController {
     public List<Student> GetAllStudents() {
         return studentService.GetAllStudents();
     }
+
+
+    @GetMapping(path = "/list/{id}")
+    @Override
+    public Student getStudentById( @PathVariable(name = "id") Integer id) {
+        return studentService.GetStudentById(id);
+    }
 }
