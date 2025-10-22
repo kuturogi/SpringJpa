@@ -17,4 +17,6 @@ public interface IStudentService {
     public void deleteStudent(Integer id);
 
     public DtoStudent UpdateStudent(Integer id, DtoStudentIU dtoStudentIU);
+
+
 }
