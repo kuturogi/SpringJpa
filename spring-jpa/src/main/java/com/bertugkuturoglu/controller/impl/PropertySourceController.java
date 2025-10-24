@@ -36,5 +36,6 @@ public class PropertySourceController {
     @GetMapping("/getServers")
     public List<Server> getServers(){
         return globalProperties.getServers();
+        return globalProperties.getServers();
     }
 }
